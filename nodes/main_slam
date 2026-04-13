@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+import sys
+import os
+
+import torch
+#  导入目录
+sys.path.append('/home/zhang/pathplan/src/aapathplanning/environment')
+import rospy
+from std_msgs.msg import Float32
+from environment_slam import Env
+import numpy as np
+import copy
+
+
+# ---Directory Path---#
+dirPath = os.path.dirname(os.path.realpath(__file__))
+
+if __name__ == '__main__':
+    rospy.init_node('main')
+    pub_result = rospy.Publisher('result', Float32, queue_size=5)
+    result = Float32()
+    print('123456')
+    action_dim = 2
+    state_dim = 30
+    max_steps = 500
+    past_action = np.array([0., 0.])
+    results = []
+
+    train_reward = np.empty((0, 3), float)
+    test_reward = np.empty((0, 3), float)
+
+    env = Env(action_dim)
+    #agent = SAC_NEW_RND(state_dim, action_dim)
+    # agent.load_models()
+    #
+    state = env.reset()
+    print('234')
+    # rewards_current_episode = 0.
+    
+    
