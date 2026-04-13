@@ -1,0 +1,11 @@
+<launch>
+    <arg name="stage" default="4"/>
+    <param name="stage_number"  value="$(arg stage)"/>
+    <!-- 载入node文件的py代码 -->
+    <node pkg="aapathplanning" type="main" name="main" output="screen" />
+
+    <node pkg="aapathplanning" type="combination_obstacle_1" name="combination_obstacle_1" output="screen" />
+    <node pkg="aapathplanning" type="combination_obstacle_2" name="combination_obstacle_2" output="screen" />
+    <node pkg="aapathplanning" type="combination_obstacle_3" name="combination_obstacle_3" output="screen" />
+    <node pkg="aapathplanning" type="combination_obstacle_4" name="combination_obstacle_4" output="screen" />
+  </launch>
